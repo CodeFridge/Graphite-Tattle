@@ -15,7 +15,7 @@
           $graph_row = ($graph_count % $columns);
         
 		?>
-        <span class=""><a href="<?=Graph::makeUrl('edit',$graph); ?>"><img src="<?=Graph::drawGraph($graph,$dashboard); ?>" rel=<?=($graph_count >= $columns ? 'popover-above' : 'popover-below'); ?> title="<?=$graph->getName(); ?>" data-content="<?=$graph->getDescription(); ?>" /></a></span>
+        <span class=""><a href="<?=Graph::makeUrl('edit',$graph); ?>"><img class="chart" src="<?=Graph::drawGraph($graph,$dashboard); ?>" rel=<?=($graph_count >= $columns ? 'popover-above' : 'popover-below'); ?> title="<?=$graph->getName(); ?>" data-content="<?=$graph->getDescription(); ?>" /></a></span>
     <?php 
           $graph_count++;
            if ( $graph_count == $columns) {

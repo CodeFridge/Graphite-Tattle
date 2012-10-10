@@ -60,7 +60,27 @@ if (!$this->get('full_screen')) { ?>
    	</script>
 <?php 
 if ($this->get('full_screen') && $this->get('refresh') > 0) {
-  echo '<meta http-equiv="refresh" content="' . $this->get('refresh') . '">';
+  ?>
+    <script type="text/javascript"> 
+      $(function() {
+        setInterval(function() {
+          $(".chart").each(function() {
+            var me = this
+            $.get($(this).attr('src'), function(data) {
+              var $loader = $(document.createElement('img'));
+              $loader.attr('src', $(me).attr('src')).ready(function(){
+                $(me).attr('src', $loader.attr('src'));
+
+              });
+
+
+            });
+          });
+      }, <?php echo $this->get('refresh')*1000; ?>
+      });
+     
+    </script>
+    <?php
 } ?> 
   </head>
   <body>
