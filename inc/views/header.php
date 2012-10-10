@@ -76,7 +76,7 @@ if ($this->get('full_screen') && $this->get('refresh') > 0) {
 
             });
           });
-      }, <?php echo $this->get('refresh')*1000; ?>
+      }, <?php echo $this->get('refresh')*1000; ?>);
       });
      
     </script>
